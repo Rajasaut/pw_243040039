@@ -29,16 +29,17 @@ $makanan = ['☕', '🍫', '🍗', '🍔', '🍟'];
             <li>
                 <?php echo $makanan[$i]; ?></li>
             </li>
-        <?php endforeach ; ?>
+        <?php } ?>
     </ul>
 
     <h2>Daftar Binatang Baru</h2>
     <ul>
         <?php foreach ($binatang as $b) : ?>
-        <li><?php echo $b; ?></li></li>
-        <?php endforeach; ?>  
+            <li><?php echo $b; ?></li>
+            </li>
+        <?php endforeach; ?>
     </ul>
- 
+
 </body>
 
 </html>
