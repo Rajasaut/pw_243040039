@@ -1,7 +1,19 @@
 <?
-require 'kuliah/functions.php';
+// Koneksi ke Data Base
+$conn = mysqli_connect("localhost", "root", "", "pw2024_243040039");
 
-var_dump($mahasiswa);
+// Mengambil Data Mahasiswa Dari Tabel Mahasiswa / query Data Mahasiswa
+$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
+
+// ambil data (fetch) mahasiswa dari objek result
+//mysqli_fetch_row()// Mengambil array numerik
+//mysqli_fetcs_assoc()// Mengambil array assosiative
+//mysqli_fetcs_array()// mengembalikan keduanya
+//mysqli_fetcs_object()//
+
+// while ($mhs = mysqli_fetch_assoc($result)) {
+//     var_dump($mhs);
+// }
 
 ?>
 
@@ -32,7 +44,7 @@ var_dump($mahasiswa);
 
 
         <?php $i = 1; ?>
-        <?php foreach ($mahasiswa as $row) : ?>
+        <?php while ($row = mysqli_fetch_assoc($result)) : ?>
 
             <tr>
                 <td><?= $i; ?></td>
@@ -47,7 +59,7 @@ var_dump($mahasiswa);
                 <td><?= $row["jurusan"]; ?></td>
             </tr>
             <?php $i++;  ?>
-        <?php endforeach; ?>
+        <?php endwhile; ?>
 
 
     </table>
