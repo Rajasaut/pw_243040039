@@ -1,6 +1,6 @@
-<?
+<?php
 // Koneksi ke Data Base
-$conn = mysqli_connect("localhost", "root", "", "pw2024_243040039");
+$conn = mysqli_connect('localhost', 'root', '', 'pw2024_243040039');
 
 // Mengambil Data Mahasiswa Dari Tabel Mahasiswa / query Data Mahasiswa
 $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
@@ -15,6 +15,10 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
 //     var_dump($mhs);
 // }
 
+// Untuk Cek koneksi
+// if ($conn->connect_error) {
+//     die("Koneksi gagal: " . $conn->connect_error);
+// }
 ?>
 
 <!DOCTYPE html>

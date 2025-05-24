@@ -1,4 +1,4 @@
-<?
+<?php
 // Koneksi ke Data Base
 $conn = mysqli_connect("localhost", "root", "", "pw2024_243040039");
 function query($query)
