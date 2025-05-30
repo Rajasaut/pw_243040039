@@ -40,8 +40,11 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
                                 <img src="img/nophoto.jpg" width="50">
                             </td>
                             <td>
-                                <a href="" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a> | <a href="" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
+                                <a href="" class="btn btn-warning"><i class="bi bi-pencil-square"></i>edit</a> |
+                                <a href="hapus.php?id=<?= $row["id"]; ?>" class="btn btn-danger"><i class="bi bi-trash3">hapus</i></a>
                             </td>
+                            </td>
+
                         </tr>
                     <?php endforeach; ?>
                 </table>
