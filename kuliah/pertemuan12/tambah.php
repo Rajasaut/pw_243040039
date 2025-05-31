@@ -33,10 +33,10 @@ if (isset($_POST["submit"])) {
 
 <body>
     <h1>Tambah data mahasiswa</h1>
-    <form action="" method="POST">
+    <form action="" method="post">
         <ul>
             <li>
-                <label for="nim">nim :</label>
+                <label for="nim">NIM :</label>
                 <input type="text" name="nim" id="nim" required>
             </li>
             <li>

@@ -1,11 +1,6 @@
 <?php
 require 'functions.php';
 
-if (!isset($_GET["id"])) {
-    echo "ID tidak ditemukan!";
-    exit;
-}
-
 $id = $_GET["id"];
 
 if (hapus($id) > 0) {

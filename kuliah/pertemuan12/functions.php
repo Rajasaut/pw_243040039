@@ -1,12 +1,10 @@
 <?php
-function koneksi()
-{
-    $conn = mysqli_connect('localhost', 'root', '', 'pw2024_243040039');
-    return $conn;
-}
+$conn = mysqli_connect('localhost', 'root', '', 'pw2024_243040039');
+return $conn;
+
 function query($query)
 {
-    $conn = koneksi();
+    global $conn;
     $result = mysqli_query($conn, $query);
     $rows = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -17,8 +15,7 @@ function query($query)
 
 function tambah($data)
 {
-    $conn = koneksi(); // panggil fungsi koneksi()
-
+    global $conn;
     $nama = htmlspecialchars($data["nama"]);
     $nim = htmlspecialchars($data["nim"]);
     $email = htmlspecialchars($data["email"]);
@@ -26,7 +23,9 @@ function tambah($data)
     $gambar = htmlspecialchars($data["gambar"]);
 
     $query = "INSERT INTO mahasiswa (nama, nim, email, jurusan, gambar)
-              VALUES ('$nama', '$nim', '$email', '$jurusan', '$gambar')";
+                        VALUES
+                    ('$nama', '$nim', '$email', '$jurusan', '$gambar')
+                    ";
 
     mysqli_query($conn, $query);
 
@@ -35,16 +34,8 @@ function tambah($data)
 
 function hapus($id)
 {
-    $conn = koneksi();
-    $id = (int)$id;
-
+    global $conn;
+    mysqli_query($conn, "DELETE FROM mahasiswa WHERE id =$id");
     $query = "DELETE FROM mahasiswa WHERE id = $id";
-    $result = mysqli_query($conn, $query);
-
-    if (!$result) {
-        echo "Query Error: " . mysqli_error($conn);
-        exit;
-    }
-
     return mysqli_affected_rows($conn);
 }

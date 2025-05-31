@@ -18,6 +18,8 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
         <div class="row">
             <div class="col">
                 <h1>Daftar Mahasiswa</h1>
+                <a href="tambah.php">Tambah data mahasiswa</a>
+                <br><br>
                 <table class="table table-hover">
                     <tr>
                         <th>NO</th>
